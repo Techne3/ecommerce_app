@@ -115,6 +115,14 @@ button:hover{
   border:0.1rem #404040 solid;
 }
 
+/* alert */
+.success{
+  color:#20a020
+}
+.danger{
+  color:#a02020
+}
+
 /* Card */
 .card {
   border: 0.1rem #c0c0c0 solid;
@@ -138,4 +146,19 @@ button:hover{
 }
 .rating span:last-child{
   color:#404040;
+}
+
+.alert{
+  padding: 1rem;
+  border:0.1rem solid transparent;
+  border-radius: .5rem;
+}
+
+.alert-info{
+  color:#2020a0;
+  background-color: #e0e0ff;
+}
+.alert-danger{
+  color:#a02020;
+  background-color: #ffe0e0e0;
 }
