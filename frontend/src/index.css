@@ -100,13 +100,13 @@ a.brand {
   font-size: 3rem;
   font-weight: bold;
 }
-.badge{
+.badge {
   background-color: #f02020;
   color: #ffffff;
   border-radius: 50%;
   padding: 0.2rem 0.7rem;
   font-size: 1.4rem;
-  /* margin-left: 0.2rem; */
+  margin-left: 0.2rem;
 }
 .row {
   display: flex;
@@ -126,7 +126,7 @@ a.brand {
 .col-2 {
   flex: 2 1 50rem;
 }
-.min-30{
+.min-30 {
   min-width: 30rem;
 }
 
@@ -136,7 +136,7 @@ img {
 }
 img.small {
   max-width: 5rem;
-  width:100%;
+  width: 100%;
 }
 img.medium {
   max-width: 29rem;
@@ -171,7 +171,7 @@ img.large {
   color: #404040;
 }
 /* Alert */
-.loading{
+.loading {
   display: block !important;
 }
 .success {
@@ -193,25 +193,25 @@ img.large {
   color: #a02020;
   background-color: #ffe0e0;
 }
-/* form */
-
-.form{
+.alert-success {
+  color: #20a020;
+  background-color: #eeffe0;
+}
+/* Form */
+.form {
   max-width: 60rem;
   margin: 0 auto;
 }
-
-.form>div{
-  display:flex;
-  flex-direction:column;
-  margin:1rem;
-
+.form > div {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem;
 }
-.form label{
-  margin: 1rem 0;
-  display: block;
-} 
+.form label {
 
-/* dropdown */
+  margin: 1rem 0;
+}
+/* Dropdown */
 .dropdown {
   display: inline-block;
   position: relative;
@@ -231,16 +231,15 @@ img.large {
 .dropdown:hover .dropdown-content {
   display: block;
 }
-
-/* checkout steps */
+/* Checkout Steps */
 .checkout-steps > div {
-  border-top: .3rem #c0c0c0 solid;
-  color:#c0c0c0;
-  flex: 1 ;
+  border-top: 0.3rem #c0c0c0 solid;
+  color: #c0c0c0;
+  flex: 1;
   padding: 1rem;
+  font-weight: bold;
 }
-
 .checkout-steps > div.active {
-  border-top-color: #f08000 ;
-  color:#f08000;
+  border-top-color: #f08000;
+  color: #f08000;
 }
