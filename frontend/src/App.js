@@ -1,58 +1,73 @@
-import React from "react";
-import data from "./data";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+
+import { BrowserRouter as Router, Link, Route } from "react-router-dom";
+import { signout } from "./actions/userActions";
+import CartScreen from "./screens/CartScreen";
+import HomeScreen from "./screens/HomeScreen";
+import ProductScreen from "./screens/ProductScreen";
+import RegisterScreen from "./screens/RegisterScreen";
+import ShippingAddressScreen from "./screens/ShippingAddressScreen";
+import SigninScreen from "./screens/SigninScreen";
 
 function App() {
+  const cart = useSelector((state) => state.cart);
+  const { cartItems } = cart;
+
+  const userSignin = useSelector((state) => state.userSignin);
+  const { userInfo } = userSignin;
+
+  const dispatch = useDispatch();
+
+  const signoutHandler = () => {
+    dispatch(signout());
+  };
+
   return (
-    <div className="grid-container">
-      <header className="row">
-        <div>
-          <a className="brand" href="index.html">
-            Amazon
-          </a>
-        </div>
-        <div>
-          <a href="cart.html">Cart</a>
-          <a href="signin.html">Sign In</a>
-        </div>
-      </header>
-      <main>
-        <div>
-          <div className="row center">
-            {data.products.map((product) => (
-              <div className="card">
-                <a href="product.html">
-                  <img className="medium" src="./images/p1.jpg" alt="product" />
-                </a>
-                <div className="card-body">
-                  <a href="product.html">
-                    <h2>{product.name}</h2>
-                  </a>
-                  <div className="rating">
-                    <span>
-                      <i className="fa fa-star"></i>
-                    </span>
-                    <span>
-                      <i className="fa fa-star"></i>
-                    </span>
-                    <span>
-                      <i className="fa fa-star"></i>
-                    </span>
-                    <span>
-                      <i className="fa fa-star"></i>
-                    </span>
-                    <span>
-                      <i className="fa fa-star"></i>
-                    </span>
-                  </div>
-                  <div className="price">$120</div>
-                </div>
-              </div>
-            ))}
+    <Router>
+      <div className="grid-container">
+        <header className="row">
+          <div>
+            <Link className="brand" to="/">
+              amazon
+            </Link>
           </div>
-        </div>
-      </main>
-      <footer className="row center">All right reserved</footer>
-    </div>
+          <div>
+            <Link to="/cart">
+              Cart
+              {cartItems.length > 0 && (
+                <span className="badge">{cartItems.length}</span>
+              )}
+            </Link>
+            {userInfo ? (
+              <div className="dropdown">
+                <Link to="#">
+                  {userInfo.name} <i className="fa fa-caret-down"></i>{" "}
+                </Link>
+                <ul className="dropdown-content">
+                  <li>
+                    <Link to="#signout" onClick={signoutHandler}>
+                      Sign Out
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+            ) : (
+              <Link to="/signin">Sign In</Link>
+            )}
+          </div>
+        </header>
+        <main>
+          <Route path="/cart/:id?" component={CartScreen}></Route>
+          <Route path="/product/:id" component={ProductScreen}></Route>
+          <Route path="/signin" component={SigninScreen}></Route>
+          <Route path="/register" component={RegisterScreen}></Route>
+          <Route path="/shipping" component={ShippingAddressScreen}></Route>
+          <Route path="/" component={HomeScreen} exact></Route>
+        </main>
+        <footer className="row center">All right reserved</footer>
+      </div>
+    </Router>
   );
 }
 
