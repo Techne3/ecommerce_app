@@ -93,7 +93,7 @@ function OrderScreen(props) {
                 </p>
                 {order.isPaid ? (
                   <MessageBox variant="success">
-                    Paid at {order.paymentResult.update_time}
+                    Paid at {order.createdAt}
                   </MessageBox>
                 ) : (
                   <MessageBox variant="danger">Not Paid</MessageBox>
