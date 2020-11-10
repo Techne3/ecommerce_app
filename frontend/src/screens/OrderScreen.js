@@ -7,7 +7,10 @@ import { createOrder, detailsOrder, payOrder } from "../actions/orderActions";
 import CheckoutSteps from "../components/CheckoutSteps";
 import LoadingBox from "../components/LoadingBox";
 import MessageBox from "../components/MessageBox";
-import { ORDER_CREATE_RESET } from "../constants/orderConstants";
+import {
+  ORDER_CREATE_RESET,
+  ORDER_PAY_RESET,
+} from "../constants/orderConstants";
 import { cartReducer } from "../reducers/cartReducers";
 
 function OrderScreen(props) {
@@ -36,6 +39,7 @@ function OrderScreen(props) {
       document.body.appendChild(script);
     };
     if (!order || successPay || (order && order._id !== orderId)) {
+      dispatch({ type: ORDER_PAY_RESET });
       dispatch(detailsOrder(orderId));
     } else {
       if (!order.isPaid) {
@@ -89,7 +93,7 @@ function OrderScreen(props) {
                 </p>
                 {order.isPaid ? (
                   <MessageBox variant="success">
-                    Paid at {order.paidAt}
+                    Paid at {order.paymentResult.update_time}
                   </MessageBox>
                 ) : (
                   <MessageBox variant="danger">Not Paid</MessageBox>
