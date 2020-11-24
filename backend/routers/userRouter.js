@@ -11,7 +11,7 @@ userRouter.get(
   "/seed",
   expressAsyncHandler(async (req, res) => {
     // remove all users in database - comment out after use
-    // await User.remove({});
+    await User.remove({});
     const createdUsers = await User.insertMany(data.users);
     res.send({ createdUsers });
   })
@@ -99,6 +99,25 @@ userRouter.get(
   expressAsyncHandler(async (req, res) => {
     const users = await User.find({});
     res.send(users);
+  })
+);
+// delete a user
+userRouter.delete(
+  "/:id",
+  isAuth,
+  isAdmin,
+  expressAsyncHandler(async (req, res) => {
+    const user = await User.findById(req.params.id);
+    if (user) {
+      if (user.email === "t@gmail.com") {
+        res.status(400).send({ message: "Can Not Delete Admin User" });
+        return;
+      }
+      const deleteUser = await user.remove();
+      res.send({ message: "User deleted", user: deleteUser });
+    } else {
+      res.send(404).send({ message: "User not found" });
+    }
   })
 );
 

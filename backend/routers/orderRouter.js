@@ -11,6 +11,7 @@ orderRouter.get(
   isAuth,
   isAdmin,
   expressAsyncHandler(async (req, res) => {
+    // await Order.remove({});
     const orders = await Order.find({}).populate("user", "name");
     res.send(orders);
   })
