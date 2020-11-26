@@ -19,6 +19,7 @@ import ProfileScreen from "./screens/ProfileScreen";
 import RegisterScreen from "./screens/RegisterScreen";
 import ShippingAddressScreen from "./screens/ShippingAddressScreen";
 import SigninScreen from "./screens/SigninScreen";
+import UserEditScreen from "./screens/UserEditScreen";
 import UserListScreen from "./screens/UserListScreen";
 
 function App() {
@@ -120,6 +121,10 @@ function App() {
             component={OrderListScreen}
           ></AdminRoute>
           <AdminRoute path="/userList" component={UserListScreen}></AdminRoute>
+          <AdminRoute
+            path="/user/:id/edit"
+            component={UserEditScreen}
+          ></AdminRoute>
           <PrivateRoute
             path="/profile"
             component={ProfileScreen}
