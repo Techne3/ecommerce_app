@@ -3,14 +3,15 @@ import mongoose from "mongoose";
 const productSchema = new mongoose.Schema(
   {
     name: { type: String, required: true, unique: true },
-    image: { type: String, reuired: true },
-    brand: { type: String, reuired: true },
-    category: { type: String, reuired: true },
-    description: { type: String, reuired: true },
-    price: { type: Number, reuired: true },
-    countInStock: { type: Number, reuired: true },
-    rating: { type: Number, reuired: true },
-    numReviews: { type: Number, reuired: true },
+    seller: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
+    image: { type: String, required: true },
+    brand: { type: String, required: true },
+    category: { type: String, required: true },
+    description: { type: String, required: true },
+    price: { type: Number, required: true },
+    countInStock: { type: Number, required: true },
+    rating: { type: Number, required: true },
+    numReviews: { type: Number, required: true },
   },
   {
     timestamps: true,
