@@ -8,9 +8,7 @@ import MessageBox from "../components/MessageBox";
 import Rating from "../components/Rating";
 
 function SellerScreen(props) {
-  const dispatch = useDispatch(props);
   const sellerId = props.match.params.id;
-
   const userDetails = useSelector((state) => state.userDetails);
   const { loading, error, user } = userDetails;
 
@@ -21,11 +19,11 @@ function SellerScreen(props) {
     products,
   } = productList;
 
+  const dispatch = useDispatch();
   useEffect(() => {
     dispatch(detailsUser(sellerId));
     dispatch(listProducts({ seller: sellerId }));
-  }, [sellerId, dispatch]);
-
+  }, [dispatch, sellerId]);
   return (
     <div className="row top">
       <div className="col-1">
@@ -40,9 +38,9 @@ function SellerScreen(props) {
                 <div className="p-1">
                   <img
                     className="small"
-                    scr={user.seller.logo}
+                    src={user.seller.logo}
                     alt={user.seller.name}
-                  />
+                  ></img>
                 </div>
                 <div className="p-1">
                   <h1>{user.seller.name}</h1>
