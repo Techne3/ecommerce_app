@@ -9,7 +9,6 @@ const productRouter = express.Router();
 productRouter.get(
   "/",
   expressAsyncHandler(async (req, res) => {
-    // filter for seller
     const seller = req.query.seller || "";
     const sellerFilter = seller ? { seller } : {};
     const products = await Product.find({ ...sellerFilter }).populate(
@@ -23,7 +22,7 @@ productRouter.get(
 productRouter.get(
   "/seed",
   expressAsyncHandler(async (req, res) => {
-    await Product.remove({});
+    // await Product.remove({});
     const createdProducts = await Product.insertMany(data.products);
     res.send({ createdProducts });
   })
@@ -44,7 +43,6 @@ productRouter.get(
   })
 );
 
-// create products
 productRouter.post(
   "/",
   isAuth,
@@ -56,6 +54,7 @@ productRouter.post(
       image: "/images/p1.jpg",
       price: 0,
       category: "sample category",
+      brand: "sample brand",
       countInStock: 0,
       rating: 0,
       numReviews: 0,
@@ -65,14 +64,12 @@ productRouter.post(
     res.send({ message: "Product Created", product: createdProduct });
   })
 );
-// product update
 productRouter.put(
   "/:id",
   isAuth,
   isSellerOrAdmin,
   expressAsyncHandler(async (req, res) => {
     const productId = req.params.id;
-
     const product = await Product.findById(productId);
     if (product) {
       product.name = req.body.name;
@@ -85,7 +82,7 @@ productRouter.put(
       const updatedProduct = await product.save();
       res.send({ message: "Product Updated", product: updatedProduct });
     } else {
-      res.status(404).send({ message: "Product not found" });
+      res.status(404).send({ message: "Product Not Found" });
     }
   })
 );
@@ -96,7 +93,6 @@ productRouter.delete(
   isAdmin,
   expressAsyncHandler(async (req, res) => {
     const product = await Product.findById(req.params.id);
-
     if (product) {
       const deleteProduct = await product.remove();
       res.send({ message: "Product Deleted", product: deleteProduct });

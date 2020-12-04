@@ -13,13 +13,11 @@ import {
 } from "../constants/productConstants";
 
 function ProductListScreen(props) {
-  const sellerMode = props.match.path.indexOf(`/seller`) >= 0;
-  const dispatch = useDispatch();
-  // productCreate store
+  const sellerMode = props.match.path.indexOf("/seller") >= 0;
   const productList = useSelector((state) => state.productList);
   const { loading, error, products } = productList;
+
   const productCreate = useSelector((state) => state.productCreate);
-  // create
   const {
     loading: loadingCreate,
     error: errorCreate,
@@ -27,15 +25,15 @@ function ProductListScreen(props) {
     product: createdProduct,
   } = productCreate;
 
-  // delete
   const productDelete = useSelector((state) => state.productDelete);
   const {
     loading: loadingDelete,
-    success: successDelete,
     error: errorDelete,
+    success: successDelete,
   } = productDelete;
   const userSignin = useSelector((state) => state.userSignin);
   const { userInfo } = userSignin;
+  const dispatch = useDispatch();
   useEffect(() => {
     if (successCreate) {
       dispatch({ type: PRODUCT_CREATE_RESET });
@@ -45,12 +43,21 @@ function ProductListScreen(props) {
       dispatch({ type: PRODUCT_DELETE_RESET });
     }
     dispatch(listProducts({ seller: sellerMode ? userInfo._id : "" }));
-  }, [createdProduct, dispatch, props.history, successCreate, successDelete]);
+  }, [
+    createdProduct,
+    dispatch,
+    props.history,
+    sellerMode,
+    successCreate,
+    successDelete,
+    userInfo._id,
+  ]);
 
   const deleteHandler = (product) => {
-    dispatch(deleteProduct(product._id));
+    if (window.confirm("Are you sure to delete?")) {
+      dispatch(deleteProduct(product._id));
+    }
   };
-
   const createHandler = () => {
     dispatch(createProduct());
   };
@@ -62,6 +69,7 @@ function ProductListScreen(props) {
           Create Product
         </button>
       </div>
+
       {loadingDelete && <LoadingBox></LoadingBox>}
       {errorDelete && <MessageBox variant="danger">{errorDelete}</MessageBox>}
 

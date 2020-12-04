@@ -57,7 +57,10 @@ export const createProduct = () => async (dispatch, getState) => {
         headers: { Authorization: `${userInfo.token}` },
       }
     );
-    dispatch({ type: PRODUCT_CREATE_SUCCESS, payload: data.product });
+    dispatch({
+      type: PRODUCT_CREATE_SUCCESS,
+      payload: data.product,
+    });
   } catch (error) {
     const message =
       error.response && error.response.data.message
