@@ -9,15 +9,26 @@ const productRouter = express.Router();
 productRouter.get(
   "/",
   expressAsyncHandler(async (req, res) => {
+    const category = req.query.category || "";
+    const categoryFilter = category ? { category } : {};
     const name = req.query.name || "";
-    const seller = req.query.seller || "";
     const nameFilter = name ? { name: { $regex: name, $options: "i" } } : {};
+    const seller = req.query.seller || "";
     const sellerFilter = seller ? { seller } : {};
     const products = await Product.find({
       ...sellerFilter,
       ...nameFilter,
+      ...categoryFilter,
     }).populate("seller", "seller.name seller.logo");
     res.send(products);
+  })
+);
+// get categories from products using distinct
+productRouter.get(
+  "/categories",
+  expressAsyncHandler(async (req, res) => {
+    const categories = await Product.find().distinct("category");
+    res.send(categories);
   })
 );
 
@@ -55,7 +66,7 @@ productRouter.post(
       seller: req.user._id,
       image: "/images/p1.jpg",
       price: 0,
-      category: "sample category",
+      category: "test category",
       brand: "sample brand",
       countInStock: 0,
       rating: 0,
