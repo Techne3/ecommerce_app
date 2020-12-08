@@ -287,6 +287,9 @@ img.large {
   border-right: none;
   margin-left: 0.5rem;
 }
+.active{
+  font-weight: bold;
+}
 
 /* Aside */
 
