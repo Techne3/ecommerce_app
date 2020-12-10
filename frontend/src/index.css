@@ -297,10 +297,14 @@ aside{
   position: fixed;
   width:30rem;
   height:100%;
-  background-color: #efefef;
+  background-color: #203040;
   z-index: 1000;
   transform: translateX(-30rem);
   transition: all 0.5s;
+  color:#fff;
+}
+aside a{
+  color:rgb(159, 159, 199);
 }
 
 aside.open{
@@ -323,10 +327,16 @@ aside ul{
 }
 aside li{
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  padding:1rem
+  padding:1rem;
+  margin-left: 3rem;
 
 }
 button.close-sidebar{
   padding: 0.3rem 0.8rem;
+  border:none;
+  background: none;
+  font-size: 3rem;
+  color:#fff;
 }

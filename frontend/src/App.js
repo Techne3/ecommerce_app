@@ -157,7 +157,7 @@ function App() {
                 className="close-sidebar"
                 type="button"
               >
-                <i className="fa fa-close"></i>
+                <i className="fa fa-bars"></i>
               </button>
             </li>
             {loadingCategories ? (
