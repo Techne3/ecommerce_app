@@ -3,8 +3,8 @@ const data = {
     {
       _id: "1",
       name: "Nike slim shirt",
-      category: "Shirt",
-      image: "/images/p1.jpg",
+      category: "Road",
+      image: "/images/inflight.png",
       price: 120,
       countInStock: 10,
       brand: "Nike",
@@ -15,7 +15,7 @@ const data = {
     {
       _id: "2",
       name: "Adidas slim shirt",
-      category: "Shirt",
+      category: "Road",
       image: "/images/p2.jpg",
       price: 60,
       countInStock: 20,
@@ -27,7 +27,7 @@ const data = {
     {
       _id: "3",
       name: "Nike slim shirt",
-      category: "Shirt",
+      category: "Road",
       image: "/images/p3.jpg",
       price: 50,
       countInStock: 0,
@@ -39,7 +39,7 @@ const data = {
     {
       _id: "4",
       name: "Nike slim pants",
-      category: "Pants",
+      category: "Road",
       image: "/images/p4.jpg",
       price: 120,
       countInStock: 4,
@@ -51,7 +51,7 @@ const data = {
     {
       _id: "5",
       name: "Puma slim shirt",
-      category: "Pants",
+      category: "Road",
       image: "/images/p5.jpg",
       price: 120,
       countInStock: 5,
@@ -63,7 +63,7 @@ const data = {
     {
       _id: "6",
       name: "Adidas fit pants",
-      category: "Pants",
+      category: "Road",
       image: "/images/p6.jpg",
       price: 20,
       countInStock: 2,

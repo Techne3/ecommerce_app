@@ -42,7 +42,7 @@ function PaymentMethodScreen(props) {
           </div>
         </div>
         <div>
-          <div>
+          {/* <div>
             <input
               type="radio"
               id="stripe"
@@ -52,7 +52,7 @@ function PaymentMethodScreen(props) {
               onChange={(e) => setPaymentMethod(e.target.value)}
             ></input>
             <label htmlFor="stripe">Stripe</label>
-          </div>
+          </div> */}
         </div>
         <div>
           <label />

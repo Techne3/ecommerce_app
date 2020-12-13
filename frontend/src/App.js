@@ -28,6 +28,7 @@ import ShippingAddressScreen from "./screens/ShippingAddressScreen";
 import SigninScreen from "./screens/SigninScreen";
 import UserEditScreen from "./screens/UserEditScreen";
 import UserListScreen from "./screens/UserListScreen";
+// import { logos } from "/images/p1.jpg";
 
 function App() {
   const [sideBarIsOpen, setSidebarIsOpen] = useState(false);
@@ -61,7 +62,11 @@ function App() {
       <div className="grid-container">
         <header className="row">
           <div>
-            <Link className="brand" to="/">
+            <Link
+              className="brand"
+              to="/"
+              style={{ color: "#e76000", fontStyle: "italic" }}
+            >
               <button
                 type="button"
                 className="open-sidebar"
@@ -69,7 +74,17 @@ function App() {
               >
                 <i className="fa fa-bars"></i>
               </button>
-              Bike store
+              CANYON
+              {/* <img
+                style={{
+                  height: "35px",
+                  width: "100px",
+                  paddingLeft: "1rem",
+                  paddingTop: ".5rem",
+                }}
+                src="https://www.aspirecyclingcyprus.com/uploads/6/5/7/8/65785899/published/150915-canyon-official-partner-white_1.png?1579939689"
+                alt="canyon logo"
+              /> */}
             </Link>
           </div>
           <div>
@@ -243,7 +258,7 @@ function App() {
           ></PrivateRoute>
           <Route path="/" component={HomeScreen} exact></Route>
         </main>
-        <footer className="row center">All right reserved</footer>
+        <footer className="row center">All rights reserved TS™</footer>
       </div>
     </Router>
   );

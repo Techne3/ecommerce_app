@@ -145,6 +145,8 @@ a.brand {
 /* Image */
 img {
   border-radius: 0.5rem;
+  margin:3rem;
+  /* height:23rem; */
 }
 img.small {
   max-width: 5rem;
@@ -155,7 +157,7 @@ img.medium {
   width: 100%;
 }
 img.large {
-  width: 100%;
+  /* width: 100%; */
 }
 /* Carousel */
 .carousel .slide img{
@@ -165,7 +167,7 @@ img.large {
 /* Card */
 .card {
   border: 0.1rem #c0c0c0 solid;
-  background-color: #f8f8f8;
+  background-color: #fafafa;
   border-radius: 0.5rem;
   margin: 1rem;
 }
