@@ -22,7 +22,7 @@ body {
     'main'
     'footer';
   grid-template-columns: 1fr;
-  grid-template-rows: 5rem 1fr 5rem;
+  grid-template-rows: 7rem 1fr 7rem;
   height: 100%;
 }
 header {
@@ -85,7 +85,7 @@ button:hover {
   border: 0.1rem #404040 solid;
 }
 button.primary {
-  background-color: #f0c040;
+  background-color: #f5bb1d;
 }
 button.block {
   width: 100%;
@@ -146,7 +146,7 @@ a.brand {
 img {
   border-radius: 0.5rem;
   margin:3rem;
-  /* height:23rem; */
+  /* max-height: 15rem; */
 }
 img.small {
   max-width: 5rem;
@@ -157,12 +157,18 @@ img.medium {
   width: 100%;
 }
 img.large {
-  /* width: 100%; */
+  width: 80%;
 }
 /* Carousel */
 .carousel .slide img{
-  max-width: 30rem;
+  max-width: 50rem;
+  /* max-height: 29rem; */
 }
+.carousel .slide{
+  width: 10px;
+}
+
+
 
 /* Card */
 .card {
@@ -288,6 +294,12 @@ img.large {
   border-radius: 0.5rem 0 0 0.5rem;
   border-right: none;
   margin-left: 0.5rem;
+  width:40rem;
+}
+@media only screen and (max-width: 600px) {
+  .search input {
+    width:10rem;
+  }
 }
 .active{
   font-weight: bold;

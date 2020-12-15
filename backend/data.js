@@ -94,6 +94,45 @@ const data = {
       description:
         "Hunting for that perfect line or shaving seconds off the clock out on the track, the World Cup-proven Sender CFR was designed for all-out downhill racing.",
     },
+    {
+      // _id: "6",
+      name: "Grail:ON CF 8",
+      category: "Gravel",
+      image: "/images/grav.png",
+      price: 5799,
+      countInStock: 3,
+      brand: "Canyon",
+      rating: 4.2,
+      numReviews: 5,
+      description:
+        "Gravel riding is what you make of it: freedom, high speed, nature, adventure. And the Grail:ON CF 8 is ready for them all. With its powerful motor, big battery reserves, innovative design, and range of high-end features, this is an agile, powerful gravel machine with an extra kick! ",
+    },
+    {
+      // _id: "6",
+      name: "Endurace WMN AL Disc 7.0",
+      category: "Gravel",
+      image: "/images/grav2.png",
+      price: 1000,
+      countInStock: 3,
+      brand: "Canyon",
+      rating: 4.2,
+      numReviews: 3,
+      description:
+        "100% engineered for women. Featuring our WMN Sport Geometry, superior disc brake control, female-specific contact points and low weight, this setup is ready for the biggest rides.",
+    },
+    {
+      // _id: "6",
+      name: "Endurace CF SLX Disc 8.0 eTap",
+      category: "Gravel",
+      image: "/images/grav2.png",
+      price: 2800,
+      countInStock: 3,
+      brand: "Canyon",
+      rating: 4.2,
+      numReviews: 3,
+      description:
+        "With the wireless SRAM Force eTap groupset, get performance on tap on the longest rides. From smart frame details to the high-grade components, every aspect of this bike is designed and built to deliver speed and comfort in all situations.",
+    },
   ],
 };
 

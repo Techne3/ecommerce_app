@@ -6,13 +6,13 @@ export const prices = [
     max: 0,
   },
   {
-    name: `$1 to $1000`,
+    name: `$1 to $2000`,
     min: 1,
-    max: 1000,
+    max: 2000,
   },
   {
     name: `$1000 to $5000`,
-    min: 1001,
+    min: 2001,
     max: 5000,
   },
   {

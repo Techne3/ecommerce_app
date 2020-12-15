@@ -24,24 +24,23 @@ export default function HomeScreen() {
 
   useEffect(() => {
     dispatch(listProducts({}));
-    dispatch(listTopSellers());
+    // dispatch(listTopSellers());
   }, [dispatch]);
   return (
     <div>
-      <h2>Top Seller</h2>
-      {loadingSellers ? (
+      {loading ? (
         <LoadingBox></LoadingBox>
-      ) : errorSellers ? (
-        <MessageBox variant="danger">{errorSellers}</MessageBox>
+      ) : error ? (
+        <MessageBox variant="danger">{error}</MessageBox>
       ) : (
         <>
-          {sellers.length === 0 && <MessageBox>No Seller Found</MessageBox>}
-          <Carousel showArrows autoPlay showThumbs={false}>
-            {sellers.map((seller) => (
+          {products.length === 0 && <MessageBox>No Seller Found</MessageBox>}
+          <Carousel showArrows autoPlay showThumbs={false} infiniteLoop>
+            {products.map((seller) => (
               <div key={seller._id}>
-                <Link to={`/seller/${seller._id}`}>
-                  <img src={seller.seller.logo} alt={seller.seller.name} />
-                  <p className="legend">{seller.seller.name}</p>
+                <Link to={`/product/${seller._id}`}>
+                  <img src={seller.image} alt="" />
+                  <p className="legend">{seller.name}</p>
                 </Link>
               </div>
             ))}
